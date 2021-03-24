@@ -1,0 +1,1 @@
+export { WSquad } from './WSquad';
