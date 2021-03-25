@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import JSONPretty from 'react-json-pretty';
-import { AssertsShape } from 'yup/lib/object';
+// import JSONPretty from 'react-json-pretty';
+// import { AssertsShape } from 'yup/lib/object';
 import { WButton } from '../../@Kit/Buttons';
 
 import {
@@ -50,7 +50,7 @@ export const SampleARaw = ({ className }: IWithClassName) => {
     score: 9,
   };
 
-  const v1 = schemaOfPerson.isValidSync(item);
+  // const v1 = schemaOfPerson.isValidSync(item);
   // const v1 = schemaOfPerson.validateSyncAt('givenName', item);
   // const v = schemaOfPerson.cast(item);
   // const v = schemaOfPerson.validate(val);

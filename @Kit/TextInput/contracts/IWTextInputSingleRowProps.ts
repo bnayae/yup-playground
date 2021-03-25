@@ -6,7 +6,7 @@ import { IWithClassName } from '../../../contracts';
 /**
  * Props for text input (single row)
  */
-export interface IWTextInputSingleRowProps<T = unknown> extends IWithClassName {
+export interface IWTextInputSingleRowProps extends IWithClassName {
   id?: string;
   /**
    * The label content.
@@ -15,7 +15,7 @@ export interface IWTextInputSingleRowProps<T = unknown> extends IWithClassName {
   /**
    * The value of the `input` element, required for a controlled component.
    */
-  value?: T;
+  value?: unknown;
   /**
    * The default value of the `input` element.
    */

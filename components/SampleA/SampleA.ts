@@ -3,7 +3,7 @@ import { SampleARaw } from './SampleARaw';
 
 export const SampleA = styled(SampleARaw)`
   display: grid;
-  justify-iteSampleA .text {
+  .text {
     min-width: 30rem;
   }
   .header {

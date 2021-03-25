@@ -7,16 +7,22 @@ import { guardIPhoneFieldData, guardITextFieldData } from './types/guards';
 /**
  * represent squad items selection
  */
-export const SquadField = ({ field, index, readonly }: ISquadFieldProps) => {
+export const SquadField = <T extends unknown>({
+  field,
+  index,
+  errors,
+  readonly,
+}: ISquadFieldProps<T>) => {
   if (!guardString(field.name))
     throw Error(`Unexpected type of field.name [${typeof field.name}]`);
 
   if (guardITextFieldData(field)) {
     return (
-      <SquadTextField
+      <SquadTextField<T>
         className="squad-field"
         field={field}
         index={index}
+        errors={errors}
         readonly={readonly}
       />
     );

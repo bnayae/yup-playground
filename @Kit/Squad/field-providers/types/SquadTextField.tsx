@@ -9,12 +9,13 @@ import { handleTextChangedEvent } from '../SquadChangeHandlers';
 /**
  * represent squad text item
  */
-export const SquadTextField = ({
+export const SquadTextField = <T extends unknown = never>({
   className,
   field,
   index,
+  errors,
   readonly,
-}: Omit<ISquadFieldTypeProps, 'field'> & { field: ITextFieldData }) => {
+}: Omit<ISquadFieldTypeProps, 'field'> & { field: ITextFieldData<T> }) => {
   const { fullLine, name } = field;
   if (!guardString(name))
     throw Error(`Unexpected type of field.name [${typeof name}]`);
@@ -36,6 +37,9 @@ export const SquadTextField = ({
       rows={field.rows}
       value={field.value ?? field.init}
       name={key}
+      errors={errors}
+      // placeholder={name}
+      label={name}
       onChange={(e) => handleTextChangedEvent(field, e)}
     />
   );

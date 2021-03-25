@@ -1,22 +1,12 @@
 import { IWithClassName } from '../../../contracts';
 import { IFieldDataBase } from '../../Fields';
 
-export interface ISquadFieldTypeProps extends IWithClassName {
+export interface ISquadFieldTypeProps<T extends unknown = never>
+  extends IWithClassName {
   /**
    * Field general information
    */
-  field: IFieldDataBase;
-
-  // /**
-  //  * localized label
-  //  */
-  // label: (parameters?: string | Record<string, unknown> | undefined) => string;
-  // /**
-  //  * localized place-holder
-  //  */
-  // placeholder: (
-  //   parameters?: string | Record<string, unknown> | undefined
-  // ) => string;
+  field: IFieldDataBase<T>;
 
   /**
    * the index within the squad
@@ -27,4 +17,6 @@ export interface ISquadFieldTypeProps extends IWithClassName {
    * read-only view of the data (used for review)
    */
   readonly?: boolean;
+
+  errors?: Record<keyof T, unknown>;
 }

@@ -1,0 +1,1 @@
+export { SquadSample } from './SquadSample';

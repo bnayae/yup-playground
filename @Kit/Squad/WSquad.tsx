@@ -1,10 +1,16 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Component } from 'react';
 import styled from 'styled-components';
+import { ISquadProps } from './props';
 import { WSquadRaw } from './WSquadRaw';
 
 /**
  * represent formation of controls
  */
-export const WSquad = styled(WSquadRaw)`
+export const WSquad: new <T extends unknown>() => Component<
+  ISquadProps<T>
+> = styled(WSquadRaw)`
+  align-self: center;
   display: grid;
   grid-template-columns: 1fr 1fr;
   &.mobile-view {
@@ -25,4 +31,4 @@ export const WSquad = styled(WSquadRaw)`
       grid-column: 1 / span 2;
     }
   }
-`;
+` as any;

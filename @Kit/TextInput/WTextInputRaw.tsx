@@ -30,36 +30,35 @@ export const WTextInputRaw = ({
     if (onBlur) onBlur(e);
   };
 
+  const err = errors ? errors[name]?.message : undefined;
   return (
-    <div className={className}>
-      <TextField
-        id={id}
-        variant="outlined"
-        InputProps={{
-          endAdornment: required && (
-            <InputAdornment position="start">
-              <Asterisk className="required" />
-            </InputAdornment>
-          ),
-        }}
-        type={type}
-        className="text editable"
-        error={errors && !!errors[name]}
-        helperText={errors && errors[name]?.message}
-        label={label}
-        placeholder={placeholder}
-        fullWidth
-        multiline={multiline}
-        rows={rows}
-        rowsMax={rowsExpansionBeforeScroll}
-        onChange={(e) => {
-          if (onChangeText) onChangeText(e.target.value);
-          if (onChange) onChange(e);
-        }}
-        {...rest}
-        margin={margin}
-        onBlur={handleBlur}
-      />
-    </div>
+    <TextField
+      id={id}
+      variant="outlined"
+      InputProps={{
+        endAdornment: required && (
+          <InputAdornment position="start">
+            <Asterisk className="required" />
+          </InputAdornment>
+        ),
+      }}
+      type={type}
+      className={className}
+      error={err}
+      helperText={err}
+      label={label}
+      placeholder={placeholder}
+      fullWidth
+      multiline={multiline}
+      rows={rows}
+      rowsMax={rowsExpansionBeforeScroll}
+      onChange={(e) => {
+        if (onChangeText) onChangeText(e.target.value);
+        if (onChange) onChange(e);
+      }}
+      {...rest}
+      margin={margin}
+      onBlur={handleBlur}
+    />
   );
 };
