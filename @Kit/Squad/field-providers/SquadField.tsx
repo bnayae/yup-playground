@@ -1,4 +1,5 @@
 import React from 'react';
+import { IIndexer } from '../../../contracts';
 import { guardString } from '../../../guards';
 import { ISquadFieldProps } from '../props';
 import { SquadPhoneField, SquadTextField } from './types';
@@ -7,7 +8,7 @@ import { guardIPhoneFieldData, guardITextFieldData } from './types/guards';
 /**
  * represent squad items selection
  */
-export const SquadField = <T extends unknown>({
+export const SquadField = <T extends IIndexer<T>>({
   field,
   index,
   errors,

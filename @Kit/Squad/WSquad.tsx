@@ -31,4 +31,8 @@ export const WSquad: new <T extends unknown>() => Component<
       grid-column: 1 / span 2;
     }
   }
+
+  .squad-dev {
+    grid-column: 1 / span 2;
+  }
 ` as any;

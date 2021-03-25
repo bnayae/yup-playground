@@ -9,10 +9,10 @@ import { IFieldDataBase } from '.';
  */
 export interface IFieldData<TFieldValue, TValue extends unknown = never>
   extends IFieldDataBase<TValue> {
-  /**
-   * custom field level validation
-   */
-  validation?: (value: TFieldValue) => boolean;
+  // /**
+  //  * custom field level validation
+  //  */
+  // validation?: (value: TFieldValue) => boolean;
 
   /**
    * initial value

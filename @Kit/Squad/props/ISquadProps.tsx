@@ -1,15 +1,15 @@
 import { SchemaOf } from 'yup';
-import { IWithClassName } from '../../../contracts';
+import { IIndexer, IWithClassName } from '../../../contracts';
 import { IFieldDataBase } from '../../Fields';
 
 /**
  * represent formation of controls
  */
-export interface ISquadProps<T extends unknown> extends IWithClassName {
+export interface ISquadProps<T extends IIndexer<T>> extends IWithClassName {
   /**
    * field definitions
    */
-  fields: IFieldDataBase<T>[];
+  fields: Omit<Omit<Omit<IFieldDataBase<T>, 'init'>, 'value'>, 'onChange'>[];
 
   errors?: Record<keyof T, unknown>;
 
@@ -19,4 +19,6 @@ export interface ISquadProps<T extends unknown> extends IWithClassName {
   readonly?: boolean;
 
   schema?: SchemaOf<T>;
+
+  value: T;
 }

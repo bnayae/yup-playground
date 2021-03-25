@@ -5,8 +5,9 @@
  */
 
 import { FieldType } from '.';
+import { IIndexer } from '../../contracts';
 
-export interface IFieldDataBase<T extends unknown = never> {
+export interface IFieldDataBase<T extends IIndexer<T> = never> {
   /**
    * Field name (will be the name of the field in the json, on submit)
    */
