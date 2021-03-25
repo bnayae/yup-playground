@@ -17,7 +17,9 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "esnext",
-    "typeRoots": ["./typings", "./node_modules/@types/"]
+    "typeRoots": ["./typings", "./node_modules/@types/"],
+    "strictNullChecks": true,
+    "strictFunctionTypes": false
   },
   "exclude": ["node_modules", "typings", "out", "server.js"],
   "include": [
