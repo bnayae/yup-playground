@@ -1,0 +1,1 @@
+export { TableSample } from './TableSample';
