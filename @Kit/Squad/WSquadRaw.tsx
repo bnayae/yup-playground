@@ -68,7 +68,7 @@ export const WSquadRaw = <T extends IIndexer<T>>({
           | undefined = validation?.inner?.reduce<
           Record<string, string> | undefined
         >((acc, cur) => {
-          return { ...acc, [cur.path]: cur.message };
+          return cur.path ? { ...acc, [cur.path]: cur.message } : acc;
         }, undefined);
         const { name } = fld;
         if (!guardString(name))

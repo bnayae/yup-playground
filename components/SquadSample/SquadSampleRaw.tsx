@@ -1,20 +1,11 @@
 import React from 'react';
-import { ValidateOptions } from 'yup/lib/types';
 import { WSquad } from '../../@Kit';
 import { FieldType, ITextFieldData } from '../../@Kit/Fields';
 import { IWithClassName } from '../../contracts';
 import { IPerson, schemaOfPerson } from '../../contracts/types';
 import { Gender } from '../../contracts/types/Gender';
 
-const validationOptions: ValidateOptions<never> = {
-  abortEarly: false,
-};
-
 export const SquadSampleRaw = ({ className }: IWithClassName) => {
-  // const [validation, setValidation] = useState<
-  //   WValidationError<IPerson> | undefined
-  // >(undefined);
-
   const item: IPerson = {
     nickName: 'bnaya eshet',
     email: 'someone@gmail.com',
@@ -27,20 +18,6 @@ export const SquadSampleRaw = ({ className }: IWithClassName) => {
     birthDate: new Date('2021-03-20T10:30:09'),
     score: 9,
   };
-
-  // const onValidation = async (instance: IPerson) => {
-  //   try {
-  //     // const error: IPerson =
-  //     await schemaOfPerson.validate(instance, validationOptions);
-  //     const itm = new ValidationError('', instance);
-  //     setValidation(itm);
-  //   } catch (error) {
-  //     if (guardWValidationError<IPerson>(error)) {
-  //       // const assert: AssertsShape<IPersonAssert> = error;
-  //       setValidation(error);
-  //     }
-  //   }
-  // };
 
   const fields: ITextFieldData<IPerson>[] = [
     {
