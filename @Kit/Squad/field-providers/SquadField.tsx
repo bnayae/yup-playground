@@ -11,11 +11,16 @@ import { guardIPhoneFieldData, guardITextFieldData } from './types/guards';
 export const SquadField = <T extends IIndexer<T>>({
   field,
   index,
-  errors,
+  error,
   readonly,
 }: ISquadFieldProps<T>) => {
   if (!guardString(field.name))
     throw Error(`Unexpected type of field.name [${typeof field.name}]`);
+
+  // const error: string | undefined =
+  //   errors && Object.keys(errors)?.length
+  //     ? errors[field.name as keyof T]
+  //     : undefined;
 
   if (guardITextFieldData(field)) {
     return (
@@ -23,7 +28,7 @@ export const SquadField = <T extends IIndexer<T>>({
         className="squad-field"
         field={field}
         index={index}
-        errors={errors}
+        error={error}
         readonly={readonly}
       />
     );

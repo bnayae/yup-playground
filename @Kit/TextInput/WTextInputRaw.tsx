@@ -10,7 +10,7 @@ import { Asterisk } from './Asterisk';
 export const WTextInputRaw = ({
   className,
   type = WTextInputType.text,
-  errors,
+  error,
   name = '',
   label,
   placeholder,
@@ -30,9 +30,9 @@ export const WTextInputRaw = ({
     if (onBlur) onBlur(e);
   };
 
-  const err = errors ? errors[name]?.message : undefined;
   return (
     <TextField
+      name={name}
       id={id}
       variant="outlined"
       InputProps={{
@@ -44,8 +44,8 @@ export const WTextInputRaw = ({
       }}
       type={type}
       className={className}
-      error={err}
-      helperText={err}
+      error={error != null}
+      helperText={error}
       label={label}
       placeholder={placeholder}
       fullWidth

@@ -9,7 +9,7 @@ export interface ISquadFieldProps<T extends IIndexer<T>> {
    */
   index: number;
 
-  errors?: Record<keyof T, unknown>;
+  error?: string;
 
   /**
    * read-only view of the data (used for review)

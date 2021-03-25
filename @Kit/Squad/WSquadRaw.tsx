@@ -63,6 +63,13 @@ export const WSquadRaw = <T extends IIndexer<T>>({
   return (
     <div className={className}>
       {fields.map((fld, i: number) => {
+        const errors:
+          | Record<string, string>
+          | undefined = validation?.inner?.reduce<
+          Record<string, string> | undefined
+        >((acc, cur) => {
+          return { ...acc, [cur.path]: cur.message };
+        }, undefined);
         const { name } = fld;
         if (!guardString(name))
           throw Error(`Unexpected type of field.name [${typeof name}]`);
@@ -73,12 +80,15 @@ export const WSquadRaw = <T extends IIndexer<T>>({
           value: validation.value[name],
         };
 
+        const error = errors && errors[field.name as string];
+
         return (
           <SquadField<T>
             field={field}
             index={i}
             key={name}
             readonly={readonly}
+            error={error}
           />
         );
       })}

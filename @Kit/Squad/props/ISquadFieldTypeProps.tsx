@@ -18,5 +18,5 @@ export interface ISquadFieldTypeProps<T extends unknown = never>
    */
   readonly?: boolean;
 
-  errors?: Record<keyof T, unknown>;
+  error?: string;
 }

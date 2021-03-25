@@ -13,7 +13,7 @@ export const SquadTextField = <T extends unknown = never>({
   className,
   field,
   index,
-  errors,
+  error,
   readonly,
 }: Omit<ISquadFieldTypeProps, 'field'> & { field: ITextFieldData<T> }) => {
   const { fullLine, name } = field;
@@ -37,7 +37,7 @@ export const SquadTextField = <T extends unknown = never>({
       rows={field.rows}
       value={field.value ?? field.init}
       name={key}
-      errors={errors}
+      error={error}
       // placeholder={name}
       label={name}
       onChange={(e) => handleTextChangedEvent(field, e)}

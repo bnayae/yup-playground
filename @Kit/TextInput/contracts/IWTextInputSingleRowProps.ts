@@ -39,7 +39,7 @@ export interface IWTextInputSingleRowProps extends IWithClassName {
   /**
    * If `true`, the label will be displayed in an error state.
    */
-  error?: boolean;
+  error?: string;
   /**
    * If `true`, the `input` element will be focused during the first mount.
    */
@@ -59,8 +59,6 @@ export interface IWTextInputSingleRowProps extends IWithClassName {
   onChange?: ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement>;
   onChangeText?: (data: string) => void;
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  errors?: Record<string, any>;
   /**
    * Name attribute of the `input` element.
    */

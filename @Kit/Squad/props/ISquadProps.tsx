@@ -11,7 +11,7 @@ export interface ISquadProps<T extends IIndexer<T>> extends IWithClassName {
    */
   fields: Omit<Omit<Omit<IFieldDataBase<T>, 'init'>, 'value'>, 'onChange'>[];
 
-  errors?: Record<keyof T, unknown>;
+  errors?: Record<keyof T, string>;
 
   /**
    * read-only view of the data (used for review)
