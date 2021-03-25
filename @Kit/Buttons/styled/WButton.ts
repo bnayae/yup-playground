@@ -7,6 +7,7 @@ const defaultMinWidth = '40rem';
 
 export const WButton = styled(WButtonRaw)`
   display: grid;
+  background: pink;
   grid-template-areas:
     '.        .    .'
     'loading  text .'
@@ -52,9 +53,6 @@ export const WButton = styled(WButtonRaw)`
   height: 8.1rem;
   border-radius: ${({ borderRadius = '0.5rem' }) => borderRadius};
   border: ${({ border = 'none' }) => border};
-  border-color: ${({ theme }) => theme.pallette.color10};
-  color: ${({ theme }) => theme.pallette.color31};
-  background-color: ${({ theme }) => theme.pallette.color10};
   min-width: ${({ minWidth = defaultMinWidth }) => minWidth};
   transition: all 0.4s;
   overflow: hidden;
@@ -62,7 +60,6 @@ export const WButton = styled(WButtonRaw)`
 
   .text {
     grid-area: text;
-    font: ${({ theme }) => theme.deprecated.font.button};
     cursor: pointer;
   }
 
@@ -87,7 +84,6 @@ export const WButton = styled(WButtonRaw)`
   svg {
     width: 100%;
     path {
-      fill: ${({ theme }) => theme.pallette.color21};
     }
   }
 
@@ -100,19 +96,14 @@ export const WButton = styled(WButtonRaw)`
   }
 
   &:hover {
-    color: ${({ theme }) => theme.pallette.color21};
   }
 
   &:focus {
-    box-shadow: 0.2rem 0.1rem 0.5rem ${({ theme }) => theme.pallette.color30}66;
   }
 
   &:disabled {
-    background-color: ${({ theme }) => theme.pallette.color22};
     cursor: default;
     &:hover {
-      background-color: ${({ theme }) => theme.pallette.color22};
-      color: ${({ theme }) => theme.pallette.color30};
       cursor: not-allowed;
     }
 
@@ -131,14 +122,12 @@ export const WButton = styled(WButtonRaw)`
   }
 
   &:active:enabled {
-    box-shadow: 0.3rem 0.2rem 1rem ${({ theme }) => theme.pallette.color30}66;
   }
 
   .loading {
     grid-area: loading;
     padding: 1rem;
     .spinning {
-      color: ${({ theme }) => theme.pallette.color21};
     }
   }
 `;

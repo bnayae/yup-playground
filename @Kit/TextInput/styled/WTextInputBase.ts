@@ -25,14 +25,12 @@ export const WTextInputBase = styled(WTextInputRaw)`
     height: 2rem;
   }
   .MuiOutlinedInput-multiline {
-    font: ${({ theme }) => theme.deprecated.font.input.text};
   }
 
   .text {
     /* https://www.w3schools.com/cssref/pr_grid-area.asp */
     grid-area: 1 / text / 1 / del;
     & label {
-      font: ${({ theme }) => theme.deprecated.font.input.label};
       & + .MuiInput-formControl {
         /* form control */
       }
@@ -69,7 +67,6 @@ export const WTextInputBase = styled(WTextInputRaw)`
     } */
 
     & input {
-      font: ${({ theme }) => theme.deprecated.font.input.text};
       &:-webkit-autofill,
       &:-webkit-autofill:hover,
       &:-webkit-autofill:focus,
@@ -86,7 +83,6 @@ export const WTextInputBase = styled(WTextInputRaw)`
       /* color: green; */
     }
     .required {
-      fill: ${({ theme }) => theme.pallette.color10}aa;
       width: 2rem;
       margin-left: 0.7rem;
       align-self: start;
@@ -103,19 +99,13 @@ export const WTextInputBase = styled(WTextInputRaw)`
 
   .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline,
   .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-    border-color: ${({ theme }) => theme.pallette.color24};
-    border-width: ${({ theme }) => theme.deprecated.size.border.default}px;
-
     &:hover:enabled {
-      border-width: ${({ theme }) => theme.deprecated.size.border.hover}px;
     }
 
     &:focus:enabled {
-      border-width: ${({ theme }) => theme.deprecated.size.border.focus}px;
     }
 
     &:active:enabled {
-      border-width: ${({ theme }) => theme.deprecated.size.border.focus}px;
     }
   }
 

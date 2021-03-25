@@ -5,9 +5,6 @@ import { IIndexer } from '../../contracts';
 import { IWTableProps } from './contracts/IWTableProps';
 import { WTabledRaw } from './WTableRaw';
 
-const borderSize = '0.1rem';
-const buttonBorderSize = '0.1rem';
-
 export const WTableBase: new <T extends IIndexer<T>>() => Component<
   IWTableProps<T>
 > = styled(WTabledRaw)`
@@ -22,7 +19,6 @@ export const WTableBase: new <T extends IIndexer<T>>() => Component<
   }
 
   .rc-table-cell {
-    /* border: ${borderSize} solid ${({ theme }) => theme.pallette.color22}; */
     padding: 0 1rem;
     .MuiFormControl-marginDense {
       margin-top: 0rem;
@@ -30,16 +26,7 @@ export const WTableBase: new <T extends IIndexer<T>>() => Component<
     }
   }
 
-  .rc-table-tbody {
-    /* border: ${borderSize} solid ${({ theme }) => theme.pallette.color22}; */
-  }
-
   .rc-table-thead {
-    font: ${({ theme }) => theme.fonts.f4};
-
-    color: ${({ theme }) => theme.pallette.color31};
-    border: ${borderSize} solid ${({ theme }) => theme.pallette.color22};
-
     .rc-table-cell {
       padding: 2rem;
 
@@ -51,19 +38,14 @@ export const WTableBase: new <T extends IIndexer<T>>() => Component<
   }
 
   .add-row-btn {
-    border: ${buttonBorderSize} solid ${({ theme }) => theme.pallette.color22};
     justify-self: stretch;
-    background: ${({ theme }) => theme.pallette.color21};
+
     margin: 0 1.6rem;
     height: 6rem;
 
     .text {
       font-size: 6rem;
       font-weight: 400;
-      color: ${({ theme }) => theme.pallette.color10};
-      &:hover {
-        color: ${({ theme }) => theme.pallette.color31};
-      }
     }
 
     &:focus {
@@ -76,10 +58,10 @@ export const WTableBase: new <T extends IIndexer<T>>() => Component<
   }
 
   /* .even-row {
-    background: ${({ theme }) => theme.pallette.color20};
+
   }
 
   .odd-row {
-    background: ${({ theme }) => theme.pallette.color21};
+
   } */
 ` as any;
