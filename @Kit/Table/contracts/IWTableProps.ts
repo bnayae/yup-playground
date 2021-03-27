@@ -1,8 +1,11 @@
+import { SchemaOf } from 'yup';
 import { IWTableColumn, RowChangeEvent } from '.';
 import { TableLayoutStyle } from '..';
 import { IIndexer, IWithClassName } from '../../../contracts';
 
 export interface IWTableProps<T extends IIndexer<T>> extends IWithClassName {
+  schema?: SchemaOf<T>;
+
   /**
    * table column definition
    */

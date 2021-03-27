@@ -6,8 +6,8 @@ import '../../@extensions/string-extensions';
 import { IIndexer } from '../../contracts';
 import { guardString } from '../../guards';
 import { WButton } from '../Buttons';
-import { cellRenderStrategy } from './cell';
-import { IWTableProps } from './contracts';
+import { CellText, CellTextInput } from './cell/components';
+import { IWTableProps, TableColumnType } from './contracts';
 
 export const WTabledRaw = <T extends IIndexer<T>>({
   columns,
@@ -17,6 +17,7 @@ export const WTabledRaw = <T extends IIndexer<T>>({
   rowKey,
   onRowChange,
   onRowAdd,
+  schema,
   className,
   ...props
 }: IWTableProps<T>) => {
@@ -30,9 +31,30 @@ export const WTabledRaw = <T extends IIndexer<T>>({
   const mappedColumns: ColumnsType<T> | undefined = useMemo(
     () =>
       allColumns?.map((column) => {
-        const { title, dataKey, justify, key, render, ...c } = column;
+        const {
+          title,
+          dataKey,
+          justify,
+          key,
+          render,
+          renderType,
+          ...c
+        } = column;
         // if renderType & render = null set rendering like we do in squad.
-        const rendering = cellRenderStrategy(column, render, onRowChange);
+        let rendering = render;
+        // cellRenderStrategy(
+        //   column,
+        //   render,
+        //   onRowChange,
+        //   schema
+        // );
+        if (renderType === TableColumnType.text) {
+          rendering = CellText;
+        }
+        if (renderType === TableColumnType.editableText) {
+          const res = CellTextInput<T>(column, onRowChange, schema);
+          rendering = res;
+        }
 
         const keyOfData: string | number | undefined = guardString(dataKey)
           ? dataKey
